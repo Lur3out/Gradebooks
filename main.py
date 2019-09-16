@@ -13,9 +13,6 @@ card.update ({
 
 gradebooks.update ({"19-ЭТФ-1257" : card.copy()})
 
-print(gradebooks)
-print("/n")
-
 card.update ({
     "surname" : "Аюпов",
     "name" : "Александр",
