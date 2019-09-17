@@ -23,4 +23,16 @@ card.update ({
 
 gradebooks.update ({"19-ЭТФ-1257" : card.copy()})
 
-print (gradebooks)
+card.update ({
+    "surname" : "Клеймёнова",
+    "name" : "Вероника",
+    "lastname" : "Альбертовна",
+    "birthDate" : date(1997, 9, 2),
+    "faculty" : "Электротехнический",
+    "group" : "АСУ2-19-1м",
+    "course" : 1 })
+
+gradebooks.update ({"19-ЭТФ-1253" : card.copy()})
+
+for x, y in gradebooks.items():
+    print(x, y)
