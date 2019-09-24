@@ -6,13 +6,13 @@ Gradebook book = new Gradebook()
 card = dict()
 
 # Constants
-SURNAME = "фамилия"
-NAME = "имя"
-LASTNAME = "отчество"
-BIRTHDATE = "дата рождения"
-FACULTY = "факультет"
-GROUP = "группа"
-COURSE = "курс"
+SURNAME = "Фамилия"
+NAME = "Имя"
+LASTNAME = "Отчество"
+BIRTHDATE = "Дата рождения"
+FACULTY = "Факультет"
+GROUP = "Группа"
+COURSE = "Курс"
 
 card.update({
     SURNAME: "Аюпов",
