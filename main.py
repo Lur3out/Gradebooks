@@ -42,4 +42,4 @@ if (__name__ == "__main__"):
     for num, st in studentList.items():
         st.Show()
 else:
-    str('It is a main file, so you cant import it to another module')
+    print(str('It is a main file, so you cant import it to another module'))
