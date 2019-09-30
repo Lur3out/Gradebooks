@@ -54,4 +54,4 @@ class Student:
             Курс: {self.course}
             Номер зачётной книжки: {self.gradeBook.number}
             """
-        str(msg)
+        print(str(msg))
