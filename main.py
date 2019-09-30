@@ -1,29 +1,24 @@
 # PEP8
 from datetime import date
-import gradebook
+from gradebook import Gradebook
+from student import Student
 
-Gradebook book = new Gradebook()
+studentList = dict()
 card = dict()
+s = Student()
 
-# Constants
-SURNAME = "Фамилия"
-NAME = "Имя"
-LASTNAME = "Отчество"
-BIRTHDATE = "Дата рождения"
-FACULTY = "Факультет"
-GROUP = "Группа"
-COURSE = "Курс"
-
-card.update({
-    SURNAME: "Аюпов",
-    NAME: "Александр",
-    LASTNAME: "Дамирович",
-    BIRTHDATE: date(1997, 6, 19),
-    FACULTY: "Электротехнический",
-    GROUP: "АСУ2-19-1м",
-    COURSE: 1})
-
-book.addItem("19-ЭТФ-1248", card.copy())
+s.Fill(
+    "Аюпов",
+    "Александр",
+    "Дамирович",
+    date(1997, 6, 19),
+    "Электротехнический",
+    "АСУ2-19-1м",
+    1,
+    Gradebook()
+)
+s.gradeBook.SetNumber("19-ЭТФ-1248")
+studentList.update({s.gradeBook.number: s})
 
 """card.update ({
     "фамилия" : "Швецов",
@@ -33,9 +28,7 @@ book.addItem("19-ЭТФ-1248", card.copy())
     "факультет" : "Электротехнический",
     "группа" : "АСУ2-19-1м",
     "курс" : 1 })
-
 gradebooks.update ({"19-ЭТФ-1257" : card.copy()})
-
 card.update ({
     "фамилия" : "Клеймёнова",
     "имя" : "Вероника",
@@ -44,7 +37,6 @@ card.update ({
     "факультет" : "Электротехнический",
     "группа" : "АСУ2-19-1м",
     "курс" : 1 })
-
 gradebooks.update ({"19-ЭТФ-1253" : card.copy()})"""
-
-book.showList()
+for num, st in studentList.items():
+    st.Show()

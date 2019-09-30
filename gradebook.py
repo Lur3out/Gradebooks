@@ -3,14 +3,10 @@ from datetime import date
 
 class Gradebook:
 
-    gradebooks
+    number = ""
 
     def __init__(self):
-        self.gradebooks = dict()
+        self.number = "00-###-0000"
 
-    def showList(self):
-        for x, y in self.gradebooks.items():
-            print(x, y)
-
-    def addItem(self, key, item):
-        self.gradebooks.update(key, item)
+    def SetNumber(self, number):
+        self.number = number
