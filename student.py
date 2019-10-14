@@ -1,5 +1,4 @@
 from datetime import date
-import gradebook
 
 
 class Student:
@@ -11,19 +10,8 @@ class Student:
     faculty = ""
     group = ""
     course = 0
-    gradeBook = gradebook.Gradebook()
 
-    def __init__(self):
-        self.surname = ""
-        self.name = ""
-        self.lastname = ""
-        self.birthDate = date.today()
-        self.faculty = ""
-        self.group = ""
-        self.course = 0
-        self.gradeBook = None
-
-    def Fill(
+    def __init__(
         self,
         surname,
         name,
@@ -32,7 +20,6 @@ class Student:
         faculty,
         group,
         course,
-        gradeBook
     ):
         self.surname = surname
         self.name = name
@@ -41,17 +28,13 @@ class Student:
         self.faculty = faculty
         self.group = group
         self.course = course
-        self.gradeBook = gradeBook
 
-    def Show(self):
-        msg = F"""
+    def __repr__(self):
+        return F'''
             Фамилия: {self.surname}
             Имя: {self.name}
             Отчество: {self.lastname}
             Дата рождения: {self.birthDate}
             Факультет: {self.faculty}
             Группа: {self.group}
-            Курс: {self.course}
-            Номер зачётной книжки: {self.gradeBook.number}
-            """
-        print(str(msg))
+            Курс: {self.course}'''
