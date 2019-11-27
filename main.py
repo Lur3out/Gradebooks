@@ -36,7 +36,7 @@ if (__name__ == "__main__"):
 
     #for i in gradebookList:
         #Show(i)
-    gradebookList.map(x => Show(x))
+    print(gradebookList(X))
 else:
     print(str('It is a main file, so you cant import it to another module'))
 
