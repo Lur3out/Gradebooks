@@ -1,6 +1,7 @@
 # PEP8
 from datetime import date
 from gradebook import Gradebook
+from grades import Grades
 from student import Student
 from subject import Subject
 from pyDatalog import pyDatalog
@@ -10,7 +11,7 @@ def Show(Obj):
     print(repr(Obj))
 
 if (__name__ == "__main__"):
-    pyDatalog.create_terms('gradebookList, book, Show, grades')
+    pyDatalog.create_terms('X,Y,book, Show, grades, hasGrades, hasKurs, passedSubject')
     s = Student(
         "Аюпов",
         "Александр",
@@ -21,24 +22,42 @@ if (__name__ == "__main__"):
         1
     )
     book = Gradebook("19-ЭТФ-1248", s)
-    #book.grades.Add(1, Subject("Философия", "Экзамен", 5))
-    + gradebookList(book)
-    + hasGrades(gradebookList(book, "19-ЭТФ-1248"), grades)
-    + passedSubject((grades == hasGrades(book == gradebookList(book, "19-ЭТФ-1248"))), (1, Subject("Философия", "Экзамен", 5)))
-    + passedSubject((grades == hasGrades(book == gradebookList(book, "19-ЭТФ-1248"))), (2, Subject("Высшая математика", "Экзамен", 4)))
-    + passedSubject((grades == hasGrades(book == gradebookList(book, "19-ЭТФ-1248"))), (3, Subject("Базы данных", "Экзамен", 5)))
-    + passedSubject((grades == hasGrades(book == gradebookList(book, "19-ЭТФ-1248"))), (4, Subject("АСОИИУ", "Диф. зачёт", 5)))
-    #book.grades.Add(2, Subject("Высшая математика", "Экзамен", 4))
-    #book.grades.Add(3, Subject("Базы данных", "Экзамен", 5))
-    #book.grades.Add(4, Subject("АСОИИУ", "Диф. зачёт", 5))
+    grades = book.grades
+    kurs1 = dict()
+    kurs2 = dict()
+    kurs3 = dict()
+    kurs4 = dict()
+    subject1 = Subject("Философия", "Экзамен", 5)
+    subject2 = Subject("Высшая математика", "Экзамен", 4)
+    subject3 = Subject("Базы данных", "Экзамен", 5)
+    subject4 = Subject("АСОИИУ", "Диф. зачёт", 5)
+    kurs1.update({subject1.name: subject1})
+    kurs2.update({subject2.name: subject2})
+    kurs3.update({subject3.name: subject3})
+    kurs4.update({subject4.name: subject4})
+    grades.grades.update({1: kurs1})
+    grades.grades.update({2: kurs2})
+    grades.grades.update({3: kurs3})
+    grades.grades.update({4: kurs4})
 
-    #gradebookList.append(book)
+    + hasGrades(book, grades)
 
-    #for i in gradebookList:
-        #Show(i)
-    print(gradebookList(X))
+    + (passedSubject[subject1] == grades)
+    + (passedSubject[subject2] == grades)
+    + (passedSubject[subject3] == grades)
+    + (passedSubject[subject4] == grades)
+
+    print("PyDatalog:")
+    print(hasGrades(X,Y))
+    print("****************************************************************************")
+    print(hasGrades(X,grades))
+    print("****************************************************************************")
+    print(X == passedSubject[Y])
+    print("****************************************************************************")
+    print(X == passedSubject[subject1])
 else:
     print(str('It is a main file, so you cant import it to another module'))
+
 
     """card.update ({
         "фамилия" : "Швецов",
